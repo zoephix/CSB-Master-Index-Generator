@@ -1,3 +1,4 @@
+# ![LSSD Court Master Index Generator Banner](https://imgur.com/R8jVirF.png)
 # LSSD Court Services Bureau - Master Index Generator
 
 Instantly generate a BBCode master index table of all court threads (with status, filtering, and copy-to-clipboard) for the LSSD Court Process Tracking forums.
@@ -6,7 +7,7 @@ Instantly generate a BBCode master index table of all court threads (with status
 
 ## How it works
 
-This userscript adds a "Generate & Copy Court Index" button to the LSSD Court Process Tracking forum pages. When clicked, it automatically scrapes all court thread data (including pagination), extracts docket numbers, statuses (with color coding), types, subjects, dates, and assigned deputies, and generates a BBCode table. The script can also auto-update the master index post for you.
+This [userscript](https://en.wikipedia.org/wiki/Userscript) adds a "Generate & Copy Court Index" button to the LSSD Court Process Tracking forum pages. When clicked, it automatically scrapes all court thread data (including pagination), extracts docket numbers, statuses (with color coding), types, subjects, dates, and assigned deputies, and generates a BBCode table. The script can also auto-update the master index post for you.
 
 ---
 
@@ -14,7 +15,7 @@ This userscript adds a "Generate & Copy Court Index" button to the LSSD Court Pr
 
 ### Installation
 
-You can install this script as a userscript in all popular browsers using a userscript manager. We recommend:
+You can install this script as a [userscript](https://en.wikipedia.org/wiki/Userscript) in all popular browsers using a [Userscript Manager](https://en.wikipedia.org/wiki/Userscript_manager) of your choice. Some recommendations:
 
 - [Tampermonkey for Chrome](https://tampermonkey.net/?ext=dhdg&browser=chrome)
 - [Tampermonkey for Firefox](https://tampermonkey.net/?ext=dhdg&browser=firefox)
