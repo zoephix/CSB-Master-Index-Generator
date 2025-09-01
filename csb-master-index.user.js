@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         LSSD Court Master Index Generator (Click to Copy)
+// @name         LSSD Court Master Index Generator
 // @namespace    https://github.com/zoephix/CSB-Master-Index-Generator
 // @version      5.1
 // @description  Instantly generate a BBCode master index table of all court threads (with status, filtering, and copy-to-clipboard) for the LSSD Court Process Tracking forums.
