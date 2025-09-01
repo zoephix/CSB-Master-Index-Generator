@@ -11,7 +11,7 @@
 
 ---
 
-Instantly generate a BBCode master index table of all court threads (with status, filtering, and copy-to-clipboard) for the LSSD Court Process Tracking forums.
+Instantly generate a BBCode master index table of all court threads for the LSSD Court Process Tracking forums.
 
 ---
 
