@@ -16,7 +16,7 @@
 
 // --- Update Checker ---
 async function checkForUpdate() {
-  const CURRENT_VERSION = '5.1';
+  const CURRENT_VERSION = '1.0.0';
   const RAW_URL = 'https://raw.githubusercontent.com/zoephix/CSB-Master-Index-Generator/main/csb-master-index.user.js';
   try {
     const resp = await fetch(RAW_URL, { cache: 'no-store' });
