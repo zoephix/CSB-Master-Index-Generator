@@ -190,7 +190,6 @@
       return null;
     }
 
-
     // Fetch status colors first
     const statusColors = await getStatusColors();
 
@@ -227,7 +226,7 @@
         textarea.value = textarea.value.replace(/\[table=left,0,0,auto][\s\S]*?\[\/table]/, fullBBCode);
         // Optionally scroll to textarea for user feedback
         textarea.scrollIntoView({behavior: 'smooth', block: 'center'});
-        // Press the Preview button automatically
+        // Press the preview button automatically
         const form = document.getElementById('postform');
         if (form) {
           setTimeout(() => {
@@ -263,18 +262,6 @@
       window.location.href = editUrl;
       return;
     }
-    // Otherwise, just copy to clipboard as before
-    navigator.clipboard
-      .writeText(fullBBCode)
-      .then(() => {
-        alert(
-          `Finished! ${bbcodeEntries.length} threads added and copied to clipboard.`
-        );
-      })
-      .catch((err) => {
-        console.error("Failed to copy:", err);
-        alert("Error copying BBCode to clipboard.");
-      });
   }
 
   btn.addEventListener("click", () => handleGenerateAndEdit(false));
