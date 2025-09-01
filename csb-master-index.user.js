@@ -157,8 +157,6 @@
       }
     }
 
-
-
     // Always start from the first page if pagination exists
     function getFirstPageUrl(doc) {
       const pagination = doc.querySelector('.pagination ul');
