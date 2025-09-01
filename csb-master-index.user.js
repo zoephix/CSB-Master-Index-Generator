@@ -31,9 +31,9 @@
   btn.style.cursor = "pointer";
   document.body.appendChild(btn);
 
-  btn.addEventListener("click", async () => {
-  // Store objects with all info for sorting
-  const threadEntries = [];
+  async function handleGenerateAndEdit(autoRun) {
+    // Store objects with all info for sorting
+    const threadEntries = [];
 
 
     // Fetch status colors from the reference topic
@@ -219,7 +219,51 @@
     );
     const fullBBCode = [tableHeader, ...bbcodeEntries, tableFooter].join("\n");
 
-    // Copy to clipboard
+    // If on edit page, replace table in textarea and submit
+    if (window.location.pathname.endsWith('/posting.php') && /mode=edit/.test(window.location.search)) {
+      const textarea = document.querySelector('textarea[name="message"]');
+      if (textarea) {
+        // Replace the first [table=...]...[/table] block
+        textarea.value = textarea.value.replace(/\[table=left,0,0,auto][\s\S]*?\[\/table]/, fullBBCode);
+        // Optionally scroll to textarea for user feedback
+        textarea.scrollIntoView({behavior: 'smooth', block: 'center'});
+        // Press the Preview button automatically
+        const form = document.getElementById('postform');
+        if (form) {
+          setTimeout(() => {
+            const previewBtn = form.querySelector('input[type="submit"][name="preview"]');
+            if (previewBtn) {
+              previewBtn.click();
+              setTimeout(() => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                alert('Master index generated! Please check the preview and submit if everything looks correct.');
+              }, 500);
+            } else {
+              alert('Could not find the Preview button.');
+            }
+          }, 300);
+        }
+      } else {
+        alert('Could not find the post textarea.');
+      }
+      // Clean up the flag if present
+      if (autoRun) sessionStorage.removeItem('csb_auto_edit');
+      return;
+    } else {
+      // Not on edit page: redirect automatically
+      let editUrl = null;
+      const editLink = document.querySelector('a[href*="posting.php?mode=edit"]');
+      if (editLink) {
+        editUrl = editLink.href;
+      } else {
+        editUrl = 'https://lssd.gta.world/posting.php?mode=edit&p=322620';
+      }
+      // Set flag so script knows to auto-run after redirect
+      sessionStorage.setItem('csb_auto_edit', '1');
+      window.location.href = editUrl;
+      return;
+    }
+    // Otherwise, just copy to clipboard as before
     navigator.clipboard
       .writeText(fullBBCode)
       .then(() => {
@@ -231,5 +275,12 @@
         console.error("Failed to copy:", err);
         alert("Error copying BBCode to clipboard.");
       });
-  });
+  }
+
+  btn.addEventListener("click", () => handleGenerateAndEdit(false));
+
+  // Auto-run if redirected for edit
+  if (sessionStorage.getItem('csb_auto_edit') === '1') {
+    handleGenerateAndEdit(true);
+  }
 })();
