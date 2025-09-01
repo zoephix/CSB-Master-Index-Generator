@@ -195,7 +195,6 @@
     const statusColors = await getStatusColors();
 
     // Fetch from the forum listing page
-
     const forumUrl = "https://lssd.gta.world/viewforum.php?f=1026";
     const initialDoc = await fetchPage(forumUrl);
     const allPageUrls = getAllForumPageUrls(initialDoc, forumUrl);
