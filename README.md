@@ -36,7 +36,7 @@ You can install this script as a [userscript](https://en.wikipedia.org/wiki/User
 
 #### Install the script
 
-[**Click here to install LSSD Court Master Index Generator**](https://github.com/zoephix/CSB-Master-Index-Generator/raw/refs/heads/main/csb-master-index.user.js)
+[**Click here to install the script**](https://github.com/zoephix/CSB-Master-Index-Generator/raw/refs/heads/main/csb-master-index.user.js)
 
 ---
 
