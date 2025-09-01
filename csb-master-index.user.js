@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         LSSD Court Master Index Generator
+// @name         LSSD Court Services Bureau - Master Index Generator
 // @namespace    https://github.com/zoephix/CSB-Master-Index-Generator
 // @version      1.0.0
 // @description  Instantly generate a BBCode master index table of all court threads (with status, filtering, and copy-to-clipboard) for the LSSD Court Process Tracking forums.
@@ -14,8 +14,26 @@
 // @supportURL   https://github.com/zoephix/CSB-Master-Index-Generator/issues
 // ==/UserScript==
 
+// --- Update Checker ---
+async function checkForUpdate() {
+  const CURRENT_VERSION = '5.1';
+  const RAW_URL = 'https://raw.githubusercontent.com/zoephix/CSB-Master-Index-Generator/main/csb-master-index.user.js';
+  try {
+    const resp = await fetch(RAW_URL, { cache: 'no-store' });
+    if (!resp.ok) return;
+    const text = await resp.text();
+    const match = text.match(/@version\s+([\d.]+)/);
+    if (match && match[1] && match[1] !== CURRENT_VERSION) {
+      alert(`A new version (${match[1]}) of the LSSD Court Master Index Generator is available!\n\nGet it at:\nhttps://github.com/zoephix/CSB-Master-Index-Generator`);
+    }
+  } catch (e) { /* ignore errors */ }
+}
+
 (function () {
   "use strict";
+
+  // Check for updates (non-blocking)
+  checkForUpdate();
 
   // Create generate button
   const btn = document.createElement("button");
