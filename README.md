@@ -1,5 +1,15 @@
-# ![LSSD Court Master Index Generator Banner](https://imgur.com/R8jVirF.png)
-# LSSD Court Services Bureau - Master Index Generator
+<div align="center">
+	<img src="https://imgur.com/R8jVirF.png" alt="LSSD Court Master Index Generator Banner" />
+</div>
+
+<div id="user-content-toc" align="center">
+  <ul align="center" style="list-style: none;">
+    <summary><h1>Master Index Generator</h1></summary>
+  </ul>
+	<strong><em>LSSD Court Services Bureau</em></strong>
+</div>
+
+---
 
 Instantly generate a BBCode master index table of all court threads (with status, filtering, and copy-to-clipboard) for the LSSD Court Process Tracking forums.
 
