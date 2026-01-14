@@ -16,7 +16,7 @@
 
 // --- Update Checker ---
 async function checkForUpdate() {
-  const CURRENT_VERSION = '1.0.0';
+  const CURRENT_VERSION = '1.0.1';
   const RAW_URL = 'https://raw.githubusercontent.com/zoephix/CSB-Master-Index-Generator/main/csb-master-index.user.js';
   try {
     const resp = await fetch(RAW_URL, { cache: 'no-store' });
@@ -105,7 +105,9 @@ async function checkForUpdate() {
 
 
     async function parsePage(doc, statusColors) {
-      const threads = doc.querySelectorAll("li.row");
+      const threads = doc.querySelectorAll(
+        'div.forumbg:not(.announcement) li.row'
+      );
       threads.forEach((thread) => {
         const titleLink = thread.querySelector(".topictitle");
         if (!titleLink) return;
